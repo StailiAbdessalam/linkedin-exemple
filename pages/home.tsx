@@ -8,12 +8,13 @@ import OndemandVideoSharpIcon from "@mui/icons-material/OndemandVideoSharp";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import { getProviders, signIn } from "next-auth/react";
+import Link from "next/link";
 const home = ({ providers }: any) => {
   return (
     <div className="space-y-10 relative">
       <Head>
         <title>LinkedIn</title>
-        <link rel="icon" href="/favicon.ico" />
+        <Link rel="icon" href="/favicon.ico" />
       </Head>
       <header className="flex justify-around items-center py-4">
         <div className="relative w-36 h-10">
