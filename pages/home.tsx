@@ -10,11 +10,13 @@ import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRound
 import { getProviders, signIn } from "next-auth/react";
 import Link from "next/link";
 const home = ({ providers }: any) => {
+  console.log(providers);
+
   return (
     <div className="space-y-10 relative">
       <Head>
         <title>LinkedIn</title>
-        <Link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className="flex justify-around items-center py-4">
         <div className="relative w-36 h-10">
@@ -28,18 +30,18 @@ const home = ({ providers }: any) => {
             <HeaderLink Icon={BusinessCenterIcon} text="Jobs" />
           </div>
 
-          {/* {Object.values(providers).map((provider:any) => (
-                <div key={provider.name}> */}
-          <div className="pl-4">
-            <button
-              className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2"
-              // onClick={() => signIn(provider.id, { callbackUrl: "/" })}
-            >
-              Sign in
-            </button>
-          </div>
-          {/* </div>
-              ))} */}
+          {Object.values(providers).map((provider: any) => (
+            <div key={provider.name}>
+              <div className="pl-4">
+                <button
+                  className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2"
+                  onClick={() => signIn(provider.id, { callbackUrl: "/" })}
+                >
+                  Sign in
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </header>
 
@@ -74,12 +76,12 @@ const home = ({ providers }: any) => {
 
 export default home;
 
-// export async function getServerSideProps(context:any) {
-//     const providers = await getProviders();
+export async function getServerSideProps(context: any) {
+  const providers = await getProviders();
 
-//     return {
-//       props: {
-//         providers,
-//       },
-//     };
-//   }
+  return {
+    props: {
+      providers,
+    },
+  };
+}

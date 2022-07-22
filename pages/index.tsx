@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 
 const Home: NextPage = () => {
+  const checkAuth = () => {};
   return (
     <div>
       <Head>

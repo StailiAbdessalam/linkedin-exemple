@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/auth/[...nextauth].js", "lib/mongodb.js", "pages/_middleware.ts", "pages/home.tsx", "pages/index.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/auth/[...nextauth].js", "lib/mongodb.js", "middleware.ts", "pages/home/home.tsx", "pages/index.tsx"],
   "exclude": ["node_modules"]
 }
