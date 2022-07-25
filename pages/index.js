@@ -14,9 +14,10 @@ const Home = () => {
       <Header />
 
       <main className="flex justify-center gap-x-5 px-4 sm:px-12">
+      
         <div className="flex flex-col md:flex-row gap-5">
           <Sidebar />
-          <Feed posts={posts} />
+          {/* <Feed posts={posts} /> */}
         </div>
         {/* <Widgets articles={articles} />
         <AnimatePresence>
