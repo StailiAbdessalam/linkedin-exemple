@@ -3,8 +3,18 @@ import { signOut } from "next-auth/react";
 import { getSession, useSession } from "next-auth/react";
 import { Header, Sidebar } from "../components";
 import Feed from "../components/Feed";
+import { useRouter } from "next/router";
 
 const Home = () => {
+const router = useRouter();
+  const { statue } = useSession({
+    required: true,
+    onUnauthenticated: () => {
+      router.push("/home");
+    }
+  });
+
+
   return (
     <div className="bg-[#F3F2EF] dark:bg-black dark:text-white h-screen overflow-y-scroll md:space-y-6">
       <Head>
@@ -14,10 +24,10 @@ const Home = () => {
       <Header />
 
       <main className="flex justify-center gap-x-5 px-4 sm:px-12">
-      
+
         <div className="flex flex-col md:flex-row gap-5">
           <Sidebar />
-          {/* <Feed posts={posts} /> */}
+          <Feed />
         </div>
         {/* <Widgets articles={articles} />
         <AnimatePresence>
