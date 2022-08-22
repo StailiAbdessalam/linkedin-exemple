@@ -56,7 +56,6 @@ const gifYouUp = {
 const Modal = ({ handleClose, type }: any) => {
     const { data: session } = useSession();
     const post = useRecoilValue(getPostState);
-
     return (
         <Backdrop onClick={handleClose}>
             {type === "dropIn" && (
@@ -82,7 +81,6 @@ const Modal = ({ handleClose, type }: any) => {
                                 className="!h-11 !w-11" />
                             <h6>{session?.user?.name}</h6>
                         </div>
-
                         <Form />
                     </div>
                 </motion.div>
