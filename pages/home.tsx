@@ -21,6 +21,7 @@ const home = ({ providers }: any) => {
       <header className="flex justify-around items-center py-4">
         <div className="relative w-36 h-10">
           <img src="https://rb.gy/vtbzlp" />
+          
         </div>
         <div className="flex items-center sm:divide-x divide-gray-300">
           <div className="hidden sm:flex space-x-8 pr-4">
