@@ -8,8 +8,8 @@ import Feed from "../components/Feed";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
 import Sidebar from "../components/sidebar";
-// import Widgets from "../components/Widgets";
-// import { connectToDatabase } from "../util/mongodb";
+import {Widgets} from "../components/index"
+import { connectToDatabase } from "../util/mongodb";
 
 export default function Home({ posts, articles }) {
   const [modalOpen, setModalOpen] = useRecoilState(modalState);
@@ -37,7 +37,7 @@ export default function Home({ posts, articles }) {
           <Sidebar />
           <Feed posts={posts} />
         </div>
-        {/* <Widgets articles={articles} /> */}
+        <Widgets articles={articles} />
         <AnimatePresence>
           {modalOpen && (
             <Modal handleClose={() => setModalOpen(false)} type={modalType} />
@@ -48,44 +48,44 @@ export default function Home({ posts, articles }) {
   );
 }
 
-// export async function getServerSideProps(context) {
-//   // Check if the user is authenticated on the server...
-//   const session = await getSession(context);
-//   if (!session) {
-//     return {
-//       redirect: {
-//         permanent: false,
-//         destination: "/home",
-//       },
-//     };
-//   }
+export async function getServerSideProps(context) {
+  // Check if the user is authenticated on the server...
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/home",
+      },
+    };
+  }
 
   // Get posts on SSR
-  // const { db } = await connectToDatabase();
-  // const posts = await db
-  //   .collection("posts")
-  //   .find()
-  //   .sort({ timestamp: -1 })
-  //   .toArray();
+  const { db } = await connectToDatabase();
+  const posts = await db
+    .collection("posts")
+    .find()
+    .sort({ timestamp: -1 })
+    .toArray();
 
-  // // Get Google News API
-  // const results = await fetch(
-  //   `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS_API_KEY}`
-  // ).then((res) => res.json());
+  // Get Google News API
+  const results = await fetch(
+    `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS_API_KEY}`
+  ).then((res) => res.json());
 
-  // return {
-  //   props: {
-  //     session,
-  //     articles: results.articles,
-  //     posts: posts.map((post) => ({
-  //       _id: post._id.toString(),
-  //       input: post.input,
-  //       photoUrl: post.photoUrl,
-  //       username: post.username,
-  //       email: post.email,
-  //       userImg: post.userImg,
-  //       createdAt: post.createdAt,
-  //     })),
-  //   },
-  // };
-// }
+  return {
+    props: {
+      session,
+      articles: results.articles,
+      posts: posts.map((post) => ({
+        _id: post._id.toString(),
+        input: post.input,
+        photoUrl: post.photoUrl,
+        username: post.username,
+        email: post.email,
+        userImg: post.userImg,
+        createdAt: post.createdAt,
+      })),
+    },
+  };
+}
