@@ -14,23 +14,23 @@ function Form() {
   const uploadPost = async (e:any) => {
     e.preventDefault();
 
-    // const response = await fetch("/api/posts", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     input: input,
-    //     photoUrl: photoUrl,
-    //     username: session.user.name,
-    //     email: session.user.email,
-    //     userImg: session.user.image,
-    //     createdAt: new Date().toString(),
-    //   }),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // });
+    const response = await fetch("/api/posts", {
+      method: "POST",
+      body: JSON.stringify({
+        input: input,
+        photoUrl: photoUrl,
+        username: session?.user?.name,
+        email: session?.user?.email,
+        userImg: session?.user?.image,
+        createdAt: new Date().toString(),
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-    // const responseData = await response.json();
-    // console.log(responseData);
+    const responseData = await response.json();
+    console.log(responseData);
 
     setHandlePost(true);
     setModalOpen(false);
