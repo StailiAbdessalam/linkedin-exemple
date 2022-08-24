@@ -77,7 +77,7 @@ const Modal = ({ handleClose, type }: any) => {
                     <div className="p-4 space-y-2">
                         <div className="flex items-center space-x-2">
                             <Avatar
-                                // src={session?.user?.image}
+                                src={session?.user?.image}
                                 className="!h-11 !w-11" />
                             <h6>{session?.user?.name}</h6>
                         </div>
@@ -98,7 +98,7 @@ const Modal = ({ handleClose, type }: any) => {
                     <motion.img
                         alt=""
                         onDoubleClick={handleClose}
-                        // src={post.photoUrl}
+                        src={post.photoUrl}
                         className="object-contain max-h-[80vh] w-full max-w-3xl rounded-l-lg"
                     />
                     <div className="w-full md:w-3/5 bg-white dark:bg-[#1D2226] rounded-r-lg">
