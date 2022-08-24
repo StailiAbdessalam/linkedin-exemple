@@ -11,8 +11,8 @@ function Form() {
   const [modalOpen, setModalOpen] = useRecoilState(modalState);
   const [handlePost, setHandlePost] = useRecoilState(handlePostState);
 
-//   const uploadPost = async (e) => {
-//     e.preventDefault();
+  const uploadPost = async (e:any) => {
+    e.preventDefault();
 
     // const response = await fetch("/api/posts", {
     //   method: "POST",
@@ -32,9 +32,9 @@ function Form() {
     // const responseData = await response.json();
     // console.log(responseData);
 
-//     setHandlePost(true);
-//     setModalOpen(false);
-//   };
+    setHandlePost(true);
+    setModalOpen(false);
+  };
 
   return (
     <form className="flex flex-col relative space-y-2 text-black/80 dark:text-white/75">
@@ -57,7 +57,7 @@ function Form() {
       <button
         className="absolute bottom-0 right-0 font-medium bg-blue-400 hover:bg-blue-500 disabled:text-black/40 disabled:bg-white/75 disabled:cursor-not-allowed text-white rounded-full px-3.5 py-1"
         type="submit"
-        // onClick={uploadPost}
+        onClick={uploadPost}
         disabled={!input.trim() && !photoUrl.trim()}
       >
         Post
