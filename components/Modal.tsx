@@ -54,8 +54,8 @@ const gifYouUp = {
 };
 
 const Modal = ({ handleClose, type }: any) => {
-    const { data: session } = useSession();
-    const post = useRecoilValue(getPostState);
+    const { data: session }:any = useSession();
+    const post:any = useRecoilValue(getPostState);
     return (
         <Backdrop onClick={handleClose}>
             {type === "dropIn" && (

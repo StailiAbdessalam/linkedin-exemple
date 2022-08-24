@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "prepare": "husky install"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
@@ -40,10 +39,5 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": "eslint"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn run lint-staged"
-    }
   }
 }
