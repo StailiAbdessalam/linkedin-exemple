@@ -9,3 +9,4 @@ export const modalTypeState = atom({
   key: "modalTypeState",
   default: "dropIn",
 });
+$
