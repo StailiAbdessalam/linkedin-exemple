@@ -3,7 +3,7 @@ import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordR
 import Image from "next/image";
 import TimeAgo from "timeago-react";
 
-function Widgets({ articles }:any) {
+function Widgets({ articles }: any) {
   return (
     <div className="hidden xl:inline space-y-2">
       {/* News */}
@@ -13,8 +13,10 @@ function Widgets({ articles }:any) {
           <InfoRoundedIcon className="h-5 w-5" />
         </div>
 
+        {/* <div>hello evry dshoihds</div> */}
+
         <div className="space-y-1">
-          {articles.slice(0, 5).map((article:any) => (
+          {articles.slice(0, 5).map((article: any) => (
             <div
               key={article.url}
               className="flex space-x-2 items-center cursor-pointer hover:bg-black/10 dark:hover:bg-black/20 px-2.5 py-1"
